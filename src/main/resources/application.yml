@@ -1,0 +1,12 @@
+server:
+    port: 9000
+    contextPath: /travel
+    
+mock:
+    fare-calculation: 
+       uri: /faredetailsmock
+    retrieve-origin:
+       uri: /retrieveorigin
+    retrieve-destination:
+       uri: /retrievedestination
+

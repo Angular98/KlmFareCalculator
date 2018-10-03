@@ -1,0 +1,62 @@
+buildscript {
+
+    ext {
+		springBootVersion = '1.5.13.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'nebula.optional-base' version '3.0.3'
+    id 'nebula.provided-base' version '3.0.3'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'nebula.provided-base'
+
+
+jar {
+    baseName = 'destination-finder-client'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    
+    
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile('org.springframework.cloud:spring-cloud-netflix-hystrix-dashboard')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+    compile('org.springframework.security.oauth:spring-security-oauth2')
+    compile('org.springframework.data:spring-data-jpa')
+    compile('org.springframework.security.oauth:spring-security-core')
+    testCompile("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    testCompile("junit:junit")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Edgware.SR1"
+	}
+}

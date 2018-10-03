@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="traveldetails.js">
+	</
+</script>
+<body>
+
+	<div ng-app="travelApp" ng-controller="travelController">
+
+		<p>
+			Origin: <input type="text" ng-model="originname">
+		</p>
+		<p>Selected Origin: {{originname}}</p>
+		<p>
+			Origin: <input type="text" ng-model="destinationname">
+		</p>
+		<p>Selected Destination: {{destinationname}}</p>
+
+		<table>
+			<tr ng-repeat="details in travelresponse">
+				<td>details.origin</td>
+				<td>details.destination</td>
+				<td>details.fare</td>
+			</tr>
+		</table>
+
+
+	</div>
+
+</body>
+</html>
